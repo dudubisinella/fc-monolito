@@ -1,44 +1,46 @@
 import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import AddressClientDto from "../domain/value-object/address-client.dto";
 
 @Table({
-  tableName: 'client',
-  timestamps: false
+  tableName: "clients",
+  timestamps: false,
 })
-export class ClientModel extends Model {
+export default class ClientModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })
-  id: string
+  id: string;
 
   @Column({ allowNull: false })
-  name: string
+  name: string;
 
   @Column({ allowNull: false })
-  email: string
+  email: string;
 
   @Column({ allowNull: false })
-  document: string
+  declare document: string;
 
   @Column({ allowNull: false })
-  street: string
+  declare street: string;
 
   @Column({ allowNull: false })
-  number: string
-
-  @Column({ allowNull: true })
-  complement: string
+  declare number: string;
 
   @Column({ allowNull: false })
-  city: string
+  declare city: string;
 
   @Column({ allowNull: false })
-  state: string
+  declare zipCode: string;
 
   @Column({ allowNull: false })
-  zipcode: string
+  declare state: string;
 
   @Column({ allowNull: false })
-  createdAt: Date
+  declare complement: string;
 
   @Column({ allowNull: false })
-  updatedAt: Date
+  createdAt: Date;
+
+  @Column({ allowNull: false })
+  updatedAt: Date;
+  dataValues: any;
 }
